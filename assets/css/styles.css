@@ -1,16 +1,16 @@
+/* Fondo con el logo */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  /* Fondo con el logo en toda la pantalla */
-
   background: url("imagenes/barcelona.webp") no-repeat center center fixed;
   background-size: cover;
-    background-position: center;
-  overflow: hidden; /* importante para que los globos no generen scroll */
+  background-position: center;
+  overflow: hidden;
 }
 
+/* Contenedor principal */
 .overlay {
   height: 100%;
   display: flex;
@@ -18,6 +18,7 @@ body, html {
   align-items: center;
 }
 
+/* Caja central */
 .card {
   background: rgba(0,0,0,0.7);
   padding: 40px;
@@ -25,9 +26,34 @@ body, html {
   box-shadow: 0 0 25px #FFD700;
   text-align: center;
   max-width: 700px;
-  z-index: 10; /* asegura que esté adelante del fondo */
+  z-index: 10; /* asegura que esté adelante */
+  position: relative;
 }
 
+/* Título de cumpleaños */
+.birthday-title {
+  font-size: 3em;
+  color: #FFD700;
+  text-shadow: 2px 2px 8px black;
+  margin-bottom: 20px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #FFD700; }
+  to { text-shadow: 0 0 25px #FF4500; }
+}
+
+/* Firma personalizada */
+.signature {
+  font-size: 1.5em;
+  color: #FFD700;
+  text-shadow: 1px 1px 5px black;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Botones */
 .surprise-btn, .music-btn {
   background: #FFD700;
   border: none;
@@ -37,8 +63,14 @@ body, html {
   cursor: pointer;
   margin-top: 15px;
   position: relative;
+  transition: transform 0.3s ease;
 }
 
+.surprise-btn:hover, .music-btn:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* Mensaje animado */
 .message {
   font-size: 1.6em;
   line-height: 1.6;
@@ -81,6 +113,10 @@ body, html {
   0% { transform: translateY(0); }
   100% { transform: translateY(110vh); }
 }
+
+
+
+
 
 
 
