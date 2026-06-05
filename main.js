@@ -1,4 +1,5 @@
-const text = "Felice compleanno, caro… 🎂\nHay regalos que no vuelven dos veces,\ny yo fui uno de ellos.";
+const text = "🎉 ¡Feliz cumpleaños, testardo! 🎉\nLos años de amistad me enseñaron a quererte incluso con tus muros.\nY aquí sigo, con cariño maduro y un toque provocador… perché sai che non posso resistere 💋";
+
 
 const messageElement = document.getElementById("message");
 const surpriseBtn = document.getElementById("surpriseBtn");
