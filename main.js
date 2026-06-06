@@ -1,10 +1,9 @@
-const text = "🎉 ¡Feliz cumpleaños, testardo! 🎉\nLos años de amistad me enseñaron a quererte incluso con tus muros.\nY aquí sigo, con cariño maduro y un toque provocador… perché sai che non posso resistere 💋";
-
+const text = "🎉 ¡Feliz cumpleaños, testardo! 🎉\nLos años de amistad son como estaciones que han dejado huellas en mi corazón.\nHoy deseo que tu día brille como la luz que acompaña nuestros recuerdos.\nCon aprecio sincero… perché certe emozioni vivono oltre il tempo 💋";
 
 const messageElement = document.getElementById("message");
 const surpriseBtn = document.getElementById("surpriseBtn");
 const musicBtn = document.getElementById("musicBtn");
-const song = document.getElementById("song");
+const player = document.getElementById("player"); // ✅ solo una vez
 
 let index = 0;
 
@@ -16,13 +15,14 @@ function typeWriter() {
   }
 }
 
-// Botón sorpresa que se mueve juguetonamente
+// Botón sorpresa escurridizo (se mueve al pasar el mouse)
 surpriseBtn.addEventListener("mouseover", () => {
   const x = Math.random() * 200 - 100;
   const y = Math.random() * 200 - 100;
   surpriseBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
+// Al hacer clic en sorpresa → muestra mensaje + globos + confeti
 surpriseBtn.addEventListener("click", () => {
   surpriseBtn.style.display = "none";
   messageElement.classList.remove("hidden");
@@ -31,12 +31,24 @@ surpriseBtn.addEventListener("click", () => {
   lanzarConfeti();
 });
 
-// Botón música
-musicBtn.addEventListener("click", () => {
-  song.play();
+// Cambio de canción: primero Las Mañanitas, luego Río Roma
+player.addEventListener("ended", () => {
+  player.src = "assets/css/imagenes/music/rio-romamp3.mp3"; // ✅ tu archivo guardado
+  player.play();
 });
 
-// Generar globos dinámicamente
+// Botón música (play/pause)
+musicBtn.addEventListener("click", () => {
+  if (player.paused) {
+    player.play();
+    musicBtn.textContent = "⏸ Pausar música";
+  } else {
+    player.pause();
+    musicBtn.textContent = "▶ Reproducir música";
+  }
+});
+
+// Globos dinámicos
 function lanzarGlobos() {
   const colores = ["yellow", "black", "red"];
   for (let i = 0; i < 10; i++) {
@@ -49,7 +61,7 @@ function lanzarGlobos() {
   }
 }
 
-// Generar confeti dinámicamente
+// Confeti dinámico
 function lanzarConfeti() {
   const colores = ["yellow", "black", "red"];
   for (let i = 0; i < 30; i++) {
@@ -62,4 +74,6 @@ function lanzarConfeti() {
     setTimeout(() => confetti.remove(), 6000);
   }
 }
+
+
 
