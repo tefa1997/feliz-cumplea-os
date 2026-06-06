@@ -33,7 +33,7 @@ surpriseBtn.addEventListener("click", () => {
 
 // Cambio de canción: primero Las Mañanitas, luego Río Roma
 player.addEventListener("ended", () => {
-  player.src = "assets/css/imagenes/music/rio-romamp3"; // ✅ tu archivo guardado
+  player.src = "assets/css/music/rio-roma-mp3"; // ✅ tu archivo guardado
   player.play();
 });
 
